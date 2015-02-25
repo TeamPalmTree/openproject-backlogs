@@ -10,6 +10,16 @@ class BacklogsController < ApplicationController
 	end
 
 	def index
+		Redmine::MenuManager.loose :project_menu do |menu|
+			Version.all.each do |version|
+				menu.push version.name,
+	            { controller: '/backlogs', :action => :index },
+	            param: :project_id,
+	            caption: version.name,
+	            parent: :backlogs,
+	            html: { class: 'icon2 icon-table-view' }
+	        end
+		end
 	end
 
 end
