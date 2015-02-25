@@ -32,7 +32,7 @@ module OpenProject::Backlogs
           param: :project_id,
           caption: 'View All',
           parent: :backlogs,
-          html: { class: 'icon2 icon-view1' }
+          html: { class: 'icon2 icon-group' }
 
         Version.all.each do |version|
           menu :project_menu,
