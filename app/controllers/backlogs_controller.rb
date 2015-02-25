@@ -14,7 +14,7 @@ class BacklogsController < ApplicationController
 	def load_backlogs
 		@backlogs = {
 			:versions => Version.visible.open.includes(
-				fixed_issues: [:assigned_to, :tracker, :priority, :category, :fixed_version]
+				fixed_issues: [:assigned_to, :priority, :category, :fixed_version]
 			),
 			:product => WorkPackage.visible.open.where(fixed_version_id: nil)
 		}
