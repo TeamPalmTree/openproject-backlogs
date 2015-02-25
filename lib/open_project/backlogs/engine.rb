@@ -20,7 +20,7 @@ module OpenProject::Backlogs
 	:backlogs,
 	{ :controller => '/backlogs', :action => :index },
 	:caption => 'Backlogs',
-	:after => :timelines,
+	:before => :calendar,
 	:param => :project_id,
 	:html => {:class => 'icon2 icon-backlogs-icon'}
 
