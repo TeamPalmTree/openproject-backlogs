@@ -36,7 +36,7 @@ module OpenProject::Backlogs
 
         Version.all.each do |version|
           menu :project_menu,
-            version.id,
+            :version,
             { controller: '/backlogs', :action => :index },
             param: :project_id,
             caption: version.name,
