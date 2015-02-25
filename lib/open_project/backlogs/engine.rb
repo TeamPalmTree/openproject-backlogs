@@ -26,7 +26,7 @@ module OpenProject::Backlogs
         :param => :project_id,
         :html => {:class => 'icon2 icon-backlogs-icon'}
 
-        Version.visible.each do |version|
+        Version.all.each do |version|
           menu :project_menu,
           version.name,
           { controller: '/backlogs', :action => :index },
