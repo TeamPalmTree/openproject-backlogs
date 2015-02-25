@@ -34,16 +34,6 @@ module OpenProject::Backlogs
           parent: :backlogs,
           html: { class: 'icon2 icon-sort-by' }
 
-        Version.all.each do |version|
-          menu :project_menu,
-            version.name,
-            { controller: '/backlogs', :action => :index },
-            param: :project_id,
-            caption: version.name,
-            parent: :backlogs,
-            html: { class: 'icon2 icon-table-view' }
-        end
-
         menu :project_menu,
           :reports,
           { controller: '/backlogs', :action => :index },
