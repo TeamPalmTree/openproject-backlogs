@@ -27,7 +27,7 @@ module OpenProject::Backlogs
 			:html => {:class => 'icon2 icon-backlogs-icon'}
 
 			menu :project_menu,
-			:view_all_backlogs
+			:view_all_backlogs,
             { controller: '/backlogs', :action => :index },
             param: :project_id,
             caption: 'View All',
@@ -35,7 +35,7 @@ module OpenProject::Backlogs
             html: { class: 'icon2 icon-backlogs-icon' }
 
             menu :project_menu,
-			:graphs
+			:graphs,
             { controller: '/backlogs', :action => :index },
             param: :project_id,
             caption: 'Graphss',
