@@ -1,0 +1,19 @@
+<div class="agile-content">
+	<%= render :partial => @partial, :locals => @object %>
+</div>
+
+<% content_for :sidebar do %>
+<h3 class="agile-link" data-path="<%= agile_backlogs_path(:project_id => @project.identifier) %>"><%= link_to l(:label_backlog_plural), agile_backlogs_path(:project_id => @project.identifier), :remote => true %></h3>
+<h3><%= l(:label_board_plural) %></h3>
+<ul>
+<li class="agile-link" data-path="<%= agile_backlogs_path(:project_id => @project.identifier) %>"><% link_to '2015-02-D', agile_board_path(:project_id => @project.identifier, :version => '2015-02-D'), :remote => true %></li>
+</ul>
+<h3><%= l(:label_graph_plural) %></h3>
+<ul>
+<li class="agile-link" data-path="<%= agile_backlogs_path(:project_id => @project.identifier) %>"><% link_to 'Burndown', agile_graph_path(:project_id => @project.identifier, :graph => 'burndown'), :remote => true %></li>
+</ul>
+<% end %>
+
+<% content_for :header_tags do %>
+    <%= javascript_include_tag 'agile', :plugin => 'redmine_agile' %>
+<% end %>
