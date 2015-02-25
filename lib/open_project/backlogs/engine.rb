@@ -34,7 +34,7 @@ module OpenProject::Backlogs
           parent: :backlogs,
           html: { class: 'icon2 icon-stats2' }
 
-        Redmine::MenuManager.loose :project_menu do |menu|
+        Redmine::MenuManager.map :project_menu do |menu|
           Version.all.each do |version|
             menu.push version.name,
               { controller: '/backlogs', :action => :index },
