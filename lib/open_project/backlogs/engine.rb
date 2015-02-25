@@ -26,12 +26,12 @@ module OpenProject::Backlogs
         :param => :project_id,
         :html => {:class => 'icon2 icon-backlogs-icon'}
 
-        Version.visible.includes(fixed_issues: [:assigned_to, :tracker, :priority, :category, :fixed_version]).each do |version|
+        Version.visible.each do |version|
           menu :project_menu,
           version.name,
           { controller: '/backlogs', :action => :index },
           param: :project_id,
-          caption: 'View All',
+          caption: version.name,
           parent: :backlogs,
           html: { class: 'icon2 icon-backlogs-icon' }
         end
