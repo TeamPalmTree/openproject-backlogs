@@ -32,7 +32,7 @@ module OpenProject::Backlogs
           param: :project_id,
           caption: 'View All',
           parent: :backlogs,
-          html: { class: 'icon2 icon-group' }
+          html: { class: 'icon2 icon-sort-by' }
 
         Version.all.each do |version|
           menu :project_menu,
@@ -41,16 +41,16 @@ module OpenProject::Backlogs
             param: :project_id,
             caption: version.name,
             parent: :backlogs,
-            html: { class: 'icon2 icon-columns' }
+            html: { class: 'icon2 icon-table-view' }
         end
 
         menu :project_menu,
-          :graphs,
+          :reports,
           { controller: '/backlogs', :action => :index },
           param: :project_id,
-          caption: 'Graphs',
+          caption: 'Reports',
           parent: :backlogs,
-          html: { class: 'icon2 icon-stats' }
+          html: { class: 'icon2 icon-stats2' }
 
       end
 
