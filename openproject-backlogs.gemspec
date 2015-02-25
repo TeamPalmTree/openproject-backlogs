@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://www.openproject.org/projects/backlogs"  # TODO check this URL
   s.summary     = 'OpenProject Backlogs'
   s.description = ''
-  s.license     = ''"
+  s.license     = ''
 
   s.files = Dir["{app,config,db,lib}/**/*"] + %w(CHANGELOG.md README.md)
 
