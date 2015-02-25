@@ -1,6 +1,6 @@
 OpenProject::Application.routes.draw do
-	get '/projects/:project_id/agile', :to => 'agile#index', as: 'agile_mode'
-	get '/projects/:project_id/agile/backlogs', :to => 'agile#backlogs', as: 'agile_backlogs'
-	get '/projects/:project_id/agile/board/:version', :to => 'agile#board', as: 'agile_board'
-	get '/projects/:project_id/agile/graph/:graph', :to => 'agile#graph', as: 'agile_graph'
+	get '/projects/:project_id/backlogs/product', :to => 'backlogs#product', as: 'backlogs_product'
+	get '/projects/:project_id/backlogs/board/:version', :to => 'backlogs#board', as: 'backlogs_board'
+	get '/projects/:project_id/backlogs/reports', :to => 'backlogs#product', as: 'backlogs_reports'
+	get '/projects/:project_id/backlogs/report/:report', :to => 'backlogs#graph', as: 'backlogs_report'
 end
