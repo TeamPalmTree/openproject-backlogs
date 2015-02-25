@@ -15,7 +15,7 @@ module OpenProject::Backlogs
       project_module :backlogs do
 
         permission :view_backlogs, {
-        :backlogs => [:index]
+          :backlogs => [:index]
         }
 
         menu :project_menu,
@@ -26,13 +26,15 @@ module OpenProject::Backlogs
         :param => :project_id,
         :html => {:class => 'icon2 icon-backlogs-icon'}
 
-        menu :project_menu,
-        :view_all_backlogs,
-        { controller: '/backlogs', :action => :index },
-        param: :project_id,
-        caption: 'View All',
-        parent: :backlogs,
-        html: { class: 'icon2 icon-backlogs-icon' }
+        Version.visible.includes(fixed_issues: [:assigned_to, :tracker, :priority, :category, :fixed_version]).each do |version|
+          menu :project_menu,
+          version.name,
+          { controller: '/backlogs', :action => :index },
+          param: :project_id,
+          caption: 'View All',
+          parent: :backlogs,
+          html: { class: 'icon2 icon-backlogs-icon' }
+        end
 
         menu :project_menu,
         :graphs,
@@ -40,14 +42,6 @@ module OpenProject::Backlogs
         param: :project_id,
         caption: 'Graphs',
         parent: :backlogs,
-        html: { class: 'icon2 icon-stats' }
-
-        menu :project_menu,
-        :burndown,
-        { controller: '/backlogs', :action => :index },
-        param: :project_id,
-        caption: 'Burndown',
-        parent: :graphs,
         html: { class: 'icon2 icon-stats' }
 
       end
