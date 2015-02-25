@@ -4,7 +4,6 @@ class BacklogsController < ApplicationController
  	menu_item :backlogs
 
  	before_filter :load_project, :authorize
- 	before_filter :load_backlog_menu_items, :only => [:index]
  	before_filter :load_backlogs, :only => [:index]
 
  	def load_project
