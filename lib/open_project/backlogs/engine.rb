@@ -14,7 +14,7 @@ module OpenProject::Backlogs
 
     project_module :backlogs do
 
-	    permission :backlogs, {
+	    permission :view_backlogs, {
 	    	:backlogs => [:index]
 	    }, :public => true
 
