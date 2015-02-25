@@ -14,9 +14,9 @@ module OpenProject::Backlogs
 
     project_module :backlogs do
 
-	    permission :view_backlogs, {
-	    	:backlogs => [:index, :backlogs, :board, :graph]
-	    }
+	    permission :backlogs, {
+	    	:backlogs => [:index]
+	    }, :public => true
 
 		menu :project_menu,
 		:backlogs,
