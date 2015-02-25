@@ -12,5 +12,17 @@ module OpenProject::Backlogs
              :author_url => 'http://finn.de',
              :requires_openproject => '>= 3.0.0pre13'
 
+    permission :view_backlogs, {
+    	:backlogs => [:index, :backlogs, :board, :graph]
+    }
+
+	menu :project_menu,
+	:backlogs,
+	{ :controller => '/backlogs', :action => :index },
+	:caption => 'Backlogs',
+	:after => :work_packages,
+	:param => :project_id,
+	:html => {:class => 'icon2 icon-backlogs-icon'}
+
   end
 end

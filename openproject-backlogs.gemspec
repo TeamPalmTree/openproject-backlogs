@@ -6,9 +6,9 @@ require 'open_project/backlogs/version'
 Gem::Specification.new do |s|
   s.name        = "openproject-backlogs"
   s.version     = OpenProject::Backlogs::VERSION
-  s.authors     = "Finn GmbH"
-  s.email       = "info@finn.de"
-  s.homepage    = "https://www.openproject.org/projects/backlogs"  # TODO check this URL
+  s.authors     = "Alex Groleau"
+  s.email       = "alex@teampalmtree.com"
+  s.homepage    = "https://github.com/TeamPalmTree/openproject-backlogs"  # TODO check this URL
   s.summary     = 'OpenProject Backlogs'
   s.description = ''
   s.license     = ''
