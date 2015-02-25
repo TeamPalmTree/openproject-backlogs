@@ -5,9 +5,19 @@ class BacklogsController < ApplicationController
 
  	before_filter :load_project, :authorize
  	before_filter :load_backlog_menu_items, :only => [:index]
+ 	before_filter :load_backlogs, :only => [:index]
 
  	def load_project
 		@project = Project.find(params[:project_id])
+	end
+
+	def load_backlogs
+		@backlogs = {
+			:versions => Version.visible.open.includes(
+				fixed_issues: [:assigned_to, :tracker, :priority, :category, :fixed_version]
+			),
+			:product => Issue.visible.open.where(fixed_version_id: nil)
+		}
 	end
 
 	def load_backlog_menu_items

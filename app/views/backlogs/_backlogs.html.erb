@@ -3,13 +3,13 @@
 <% backlogs[:versions].each do |version_backlog| %>
 	<h3><%= version_backlog.name %></h3>
 	<div class="box">
-		<%= render :partial => 'issues_list', :locals => { :issues => version_backlog.fixed_issues } %>
+		<%= render :partial => 'issues_list', :locals => { :work_packages => version_backlog.fixed_issues } %>
 	</div>
 <% end %>
 
 <h3>Product</h3>
 <div class="box">
-	<%= render :partial => 'issues_list', :locals => { :issues => backlogs[:product] } %>
+	<%= render :partial => 'issues_list', :locals => { :work_packages => backlogs[:product] } %>
 </div>
 
 <%= context_menu issues_context_menu_path %>

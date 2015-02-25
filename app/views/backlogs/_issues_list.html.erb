@@ -1,23 +1,23 @@
-<% if issues && issues.any? %>
-<%= form_tag({}) do %>
-  <table class="list issues">
-    <tbody>
-    <% for issue in issues %>
-    <tr id="issue-<%= h(issue.id) %>" class="hascontextmenu <%= cycle('odd', 'even') %> <%= issue.css_classes %>">
-      <td class="id">
-        <%= check_box_tag("ids[]", issue.id, false, :style => 'display:none;', :id => nil) %>
-        <%= link_to(issue.id, issue_path(issue)) %>
+<% if work_packages && work_packages.any? %>
+  <%= form_tag({}) do %>
+    <table class="list issues work_packages">
+      <tbody>
+        <% for work_package in work_packages %>
+          <tr id="work_package-<%= h(work_package.id) %>" class="hascontextmenu <%= cycle('odd', 'even') %> <%= work_package_css_classes(work_package) %>">
+            <td class="id">
+              <%= check_box_tag("ids[]", work_package.id, false, :style => 'display:none;') %>
+              <%= link_to_work_package(work_package, :id_only => true) %>
+            </td>
+            <td class="project"><%= link_to_project(work_package.project) %></td>
+            <td class="type"><%=h work_package.type %></td>
+            <td class="subject">
+              <%= link_to_work_package(work_package, :subject_only => true) %> (<%=h work_package.status %>)
       </td>
-      <td class="project"><%= link_to_project(issue.project) %></td>
-      <td class="tracker"><%= issue.tracker %></td>
-      <td class="subject">
-        <%= link_to(issue.subject.truncate(60), issue_path(issue)) %> (<%= issue.status %>)
-      </td>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
-<% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 <% else %>
   <p class="nodata"><%= l(:label_no_data) %></p>
 <% end %>
