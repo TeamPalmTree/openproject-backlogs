@@ -19,30 +19,38 @@ module OpenProject::Backlogs
         }
 
         menu :project_menu,
-        :backlogs,
-        { :controller => '/backlogs', :action => :index },
-        :caption => 'Backlogs',
-        :after => :work_packages,
-        :param => :project_id,
-        :html => {:class => 'icon2 icon-backlogs-icon'}
+          :backlogs,
+          { :controller => '/backlogs', :action => :index },
+          :caption => 'Backlogs',
+          :after => :work_packages,
+          :param => :project_id,
+          :html => {:class => 'icon2 icon-backlogs-icon'}
+
+        menu :project_menu,
+          :view_all,
+          { controller: '/backlogs', :action => :index },
+          param: :project_id,
+          caption: 'View All',
+          parent: :backlogs,
+          html: { class: 'icon2 icon-view1' }
 
         Version.all.each do |version|
           menu :project_menu,
-          version.name,
-          { controller: '/backlogs', :action => :index },
-          param: :project_id,
-          caption: version.name,
-          parent: :backlogs,
-          html: { class: 'icon2 icon-backlogs-icon' }
+            version.name,
+            { controller: '/backlogs', :action => :index },
+            param: :project_id,
+            caption: version.name,
+            parent: :backlogs,
+            html: { class: 'icon2 icon-columns' }
         end
 
         menu :project_menu,
-        :graphs,
-        { controller: '/backlogs', :action => :index },
-        param: :project_id,
-        caption: 'Graphs',
-        parent: :backlogs,
-        html: { class: 'icon2 icon-stats' }
+          :graphs,
+          { controller: '/backlogs', :action => :index },
+          param: :project_id,
+          caption: 'Graphs',
+          parent: :backlogs,
+          html: { class: 'icon2 icon-stats' }
 
       end
 
